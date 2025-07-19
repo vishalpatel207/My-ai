@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import Button, { ContactUsButton } from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import { ContactUsButton } from "@/components/ui/Button";
 
 const projects = [
   {

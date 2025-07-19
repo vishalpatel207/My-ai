@@ -1,7 +1,6 @@
-import React from "react";
 import { Check, X } from "lucide-react";
 import Image from "next/image";
-import Button, { ContactUsButton } from "@/components/ui/Button";
+import { ContactUsButton } from "@/components/ui/Button";
 
 const features = [
   {

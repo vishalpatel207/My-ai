@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Card from "@/components/ui/Card";
+import ScrollFadeIn from "@/components/ScrollFadeIn";
 
 const projects = [
   {
@@ -63,32 +64,36 @@ const projects = [
 export default function SolutionsPage() {
   return (
     <main className="max-w-5xl mx-auto px-4 py-12">
-      <div className="flex flex-col items-center mb-10">
-        <span className="flex items-center border border-gray-200 text-black text-sm font-medium px-4 py-1 rounded-full">
-          <Image src="/icon.svg" alt="Logo" width={32} height={32} />
-          Our Services
-        </span>        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-2 mt-5 text-black font-medium">Crafting Innovative<br />Digital Solutions</h1>
-      </div>
+      <ScrollFadeIn>
+        <div className="flex flex-col items-center mb-10">
+          <span className="flex items-center border border-gray-200 text-black text-sm font-medium px-4 py-1 rounded-full">
+            <Image src="/icon.svg" alt="Logo" width={32} height={32} />
+            Our Services
+          </span>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-2 mt-5 text-black font-medium">Crafting Innovative<br />Digital Solutions</h1>
+        </div>
+      </ScrollFadeIn>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {projects.map((item, idx) => (
-          <Card
-            key={idx}
-            image={item.image}
-            title={item.title}
-            subtitle={item.subtitle}
-            description={item.description}
-            topRight={
-              <div className="text-sm text-gray-600 flex items-center gap-1 cursor-pointer">
-                View Project
-                <Image
-                  src="/export-icon.svg"
-                  alt="Export icon"
-                  width={18}
-                  height={18}
-                />
-              </div>
-            }
-          />
+          <ScrollFadeIn key={idx} yOffset={30} delay={0.1 * idx}>
+            <Card
+              image={item.image}
+              title={item.title}
+              subtitle={item.subtitle}
+              description={item.description}
+              topRight={
+                <div className="text-sm text-gray-600 flex items-center gap-1 cursor-pointer">
+                  View Project
+                  <Image
+                    src="/export-icon.svg"
+                    alt="Export icon"
+                    width={18}
+                    height={18}
+                  />
+                </div>
+              }
+            />
+          </ScrollFadeIn>
         ))}
       </div>
     </main>

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Card from "@/components/ui/Card";
+import ScrollFadeIn from "@/components/ScrollFadeIn";
 
 const services = [
   {
@@ -24,8 +25,8 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-white">
       <section className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Tagline */}
+        {/* Tagline */}
+        <ScrollFadeIn>
           <div className="flex justify-center mb-6">
             <div className="inline-flex items-center gap-2 px-4 py-2">
               <span className="flex items-center border border-gray-200 text-black text-sm font-medium px-4 py-1 rounded-full">
@@ -34,30 +35,30 @@ export default function ServicesPage() {
               </span>
             </div>
           </div>
-
-          {/* Title */}
+        </ScrollFadeIn>
+        {/* Title */}
+        <ScrollFadeIn>
           <div className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-gray-900 mb-4">
               Engineering Intelligent
               <br />
               <span className="text-gray-600 font-medium">Services</span>
             </h1>
-       
           </div>
-
-          {/* Service Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {services.map((service, idx) => (
+        </ScrollFadeIn>
+        {/* Service Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {services.map((service, idx) => (
+            <ScrollFadeIn key={idx} yOffset={30} delay={0.1 * idx}>
               <Card
-                key={idx}
                 image={service.img}
                 title={service.title}
                 subtitle="Build"
                 description={service.desc}
                 className={idx === 2 ? "sm:col-span-2" : ""}
               />
-            ))}
-          </div>
+            </ScrollFadeIn>
+          ))}
         </div>
       </section>
     </main>
